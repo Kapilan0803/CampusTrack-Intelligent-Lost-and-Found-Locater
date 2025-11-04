@@ -1,0 +1,436 @@
+
+/* Enhanced Login Container - FIXED */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  /* Use relative positioning so the container doesn't force the whole
+     page into a fixed layout (which prevents scrolling on other routes). */
+  position: relative;
+}
+
+/* Left Side - Enhanced with Animation */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #2642bd 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Animated Background Circles */
+.login-left::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.login-left::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  bottom: -80px;
+  right: -80px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+.login-left h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.login-left p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  line-height: 1.6;
+  max-width: 450px;
+  position: relative;
+  z-index: 1;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Right Side - Enhanced */
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px;
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Login Box with Glass Effect */
+.login-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 50px 45px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  animation: slideInRight 0.8s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2647d7 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Input Group */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group .icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #667eea;
+  font-size: 1.1rem;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.input-group input,
+.input-group .select-input {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  border: 2px solid #e0e6ed;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group .select-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.input-group input:focus + .icon {
+  color: #667eea;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Toggle Password Icon */
+.toggle-password {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #667eea;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.toggle-password:hover {
+  color: #764ba2;
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Select Dropdown */
+.select-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  cursor: pointer;
+}
+
+/* Options Row */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #4a5568;
+  transition: color 0.3s ease;
+}
+
+.options label:hover {
+  color: #667eea;
+}
+
+.options input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+}
+
+.options a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.options a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+.options a:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Button */
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #344fc9 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-login:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Register Text */
+.register-text {
+  text-align: center;
+  margin-top: 25px;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.register-text .link {
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.register-text .link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+.register-text .link:hover::after {
+  width: 100%;
+}
+
+/* Error Text */
+.error-text {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: -18px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Password Strength Meter */
+.password-strength-container {
+  margin-top: -15px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+
+.strength-bar {
+  height: 6px;
+  background: #e0e6ed;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: all 0.4s ease;
+  border-radius: 10px;
+}
+
+.strength-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #4a5568;
+}
+
+.strength-hint {
+  font-size: 0.75rem;
+  color: #718096;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    padding: 40px 20px;
+    height: 30vh;
+    min-height: 30vh;
+  }
+
+  .login-right {
+    height: 70vh;
+  }
+
+  .login-left h1 {
+    font-size: 2.5rem;
+  }
+
+  .login-left p {
+    font-size: 1rem;
+  }
+
+  .login-box {
+    padding: 35px 30px;
+  }
+
+  .login-box h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-left h1 {
+    font-size: 2rem;
+  }
+
+  .login-box {
+    padding: 30px 25px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}

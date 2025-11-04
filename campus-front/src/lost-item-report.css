@@ -1,0 +1,124 @@
+/* Add these styles to your lost-item-report.css file */
+
+.form-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000, #0044ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 68, 255, 0.3);
+  padding: 40px;
+  max-width: 95%;
+  width: 100%;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #000000, #0044ff);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 68, 255, 0.4);
+}
+
+.form-card h2 {
+  color: #001d3d;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tagline {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.error-text {
+  color: #dc3545;
+  text-align: center;
+  padding: 10px;
+  background: #ffe6e6;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table {
+  margin-bottom: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.custom-table thead {
+  background: linear-gradient(135deg, #001d3d, #0044ff);
+  color: white;
+}
+
+.custom-table thead th {
+  border: none;
+  padding: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.custom-table tbody td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f0f8ff;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #6c757d, #495057);
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #2d74bb, #bfcedd);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #0f3317, #07684b);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #20c997, #17a2b8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
